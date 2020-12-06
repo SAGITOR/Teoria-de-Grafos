@@ -38,6 +38,12 @@ def rellenarMatrizDeAdyacencia(matriz, contenedor):
     return matriz
 
 def graficarGrafo(matriz):
+    labels = {}
+    labels[0] = r"$Usuario 1$"
+    labels[1] = r"$Usuario 2$"
+    labels[2] = r"$Usuario 3$"
+    labels[3] = r"$Usuario 4$"
+    labels[4] = r"$Usuario 5$"
     for x in range(0 , len(matriz[0])):
         for y in range(0, len(matriz[0])):
            G.add_edge(x, y, weight = (matriz[x, y])* 0.01, length = 0.1)
@@ -46,8 +52,9 @@ def graficarGrafo(matriz):
     weights = nx.get_edge_attributes(G,'weight').values()
     pos = nx.circular_layout(G)
     color_map = ["green", "blue", "red", "orange", "purple"]
-    nx.draw(G, pos, with_labels=True, node_size=3400, font_size=20,
+    nx.draw(G, pos, with_labels=False, node_size=3400, font_size=20,
     node_color=color_map, width=list(weights), connectionstyle='arc3, rad = 0.13')
+    nx.draw_networkx_labels(G, pos, labels, font_size=12)
     plt.show(block=False)
     plt.pause(5)
     plt.close()
