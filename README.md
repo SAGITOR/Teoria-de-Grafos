@@ -1,4 +1,4 @@
-# Integrantes:
+# Integrantes
 
 Maximiliano Baranda   (maximiliano.baranda@alumnos.uv.cl)  
 Aaron Cardenas        (aaron.cardenas@alumnos.uv.cl)  
