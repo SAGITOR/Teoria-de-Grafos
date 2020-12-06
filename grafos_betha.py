@@ -25,14 +25,15 @@ def rellenarMatrizDeAdyacencia(matriz, contenedor):
         if(a % 2 == 0):
             matriz[int(anterior)][int(aux[2])] += 1 
             
-        if( round(float(aux[3])) >= tiempoVentanas and a % 2 != 0):
-            print(f'Tiempo conversacion real:{round(float(aux[3]))} || Tiempo a comparar: {tiempoVentanas}')
-            tiempoVentanas += 60
-            graficarGrafo(matriz)
+        #if( round(float(aux[3])) >= tiempoVentanas and a % 2 != 0):
+         #   print(f'Tiempo conversacion real:{round(float(aux[3]))} || Tiempo a comparar: {tiempoVentanas}')
+          #  tiempoVentanas += 60
+           # graficarGrafo(matriz)
             
         anterior = int(aux[2])
 
     graficarGrafo(matriz)
+    return matriz
 
 def graficarGrafo(matriz):
     for x in range(0 , len(matriz[0])):
@@ -47,6 +48,18 @@ def graficarGrafo(matriz):
     plt.pause(5)
     plt.close()
 
+def prompting(matriz):
+    suma_w_nodos = []
+    aux = 0
+    w_total = 0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[0])):
+            aux += matriz[i][j]
+        suma_w_nodos.append(aux)
+        w_total += aux
+        aux = 0
+    return suma_w_nodos, w_total   
+
 def main():
     fileName = 'Grupo1-393371.csv'
     try:
@@ -57,7 +70,9 @@ def main():
         sys.exit(f'Error file {fileName} not found.')   
 
     matriz= np.zeros((5, 5))
-    rellenarMatrizDeAdyacencia(matriz, contenedor)
+    matriz_total = rellenarMatrizDeAdyacencia(matriz, contenedor)
+    print(matriz_total)
+    print(prompting(matriz_total))
 
 #CREAMOS LA ESTRUCTURA DEL GRAFO CON SUS NODOS
 G = nx.DiGraph()
