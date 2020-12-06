@@ -66,7 +66,15 @@ def prompting(contenedor):
     print(vector_contador)
     print(matriz_contador_time)
 
-    
+def calcular_prompting(vector): #debes darle un vector con los valores el peso de cada nodo, y devuelve el prompting de cada uno de los nodos en otro vector.
+    matriz_prompting = []
+    for i in range(len(vector)):
+        matriz_prompting.append(vector[i]/sum(vector))
+    print(matriz_prompting)
+    return matriz_prompting
+
+
+
 
 
 def main():
@@ -81,6 +89,7 @@ def main():
     matriz= np.zeros((5, 5))
     matriz_total = rellenarMatrizDeAdyacencia(matriz, contenedor)
     prompting(contenedor)
+    calcular_prompting(vector_contador)
 
 
 
