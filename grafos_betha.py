@@ -135,6 +135,5 @@ matriz_timestamp = [] #guarda el peso de los vectores a través del tiempo
 vector_contador = [] #lista que contiene el peso de los vectoes al final de toda la comunicación 
 matriz_contador_time = [] #lista que contiene vectores con el peso de cada nodo a través del tiempo
 
-#---------------------------------------------
-#HACER QUE LAS DIENSIONES DE LOS VECTORES Y MATRICES PUEDAN MUTAR
+#---------------------------------------------AGREGAR DINAMISMO EN LAS GRAFICAS
 main()
