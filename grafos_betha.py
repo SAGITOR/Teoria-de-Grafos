@@ -59,7 +59,7 @@ def graficarGrafo(matriz):
 
 def graficarPrompting():
     listaMaestra = []
-    for i in color_nodes:
+    for i in range(nodeNumbers):
         listaMaestra.append([])
 
     for i in matriz_contador_time:
@@ -107,6 +107,7 @@ def numberOfNodes(contenedor):
 
 def main():
     global vector_contador
+    global nodeNumbers
     fileName = 'Grupo1-393371.csv'
     try:
         archivo = open(fileName, 'r')
@@ -134,6 +135,6 @@ labelsPercents = {}#Diccionarioa que guardara los porcentajes finales de cada no
 matriz_timestamp = [] #guarda el peso de los vectores a través del tiempo 
 vector_contador = [] #lista que contiene el peso de los vectoes al final de toda la comunicación 
 matriz_contador_time = [] #lista que contiene vectores con el peso de cada nodo a través del tiempo
-
+nodeNumbers = 0
 #---------------------------------------------AGREGAR DINAMISMO EN LAS GRAFICAS
 main()
