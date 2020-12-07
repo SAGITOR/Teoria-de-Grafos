@@ -77,7 +77,7 @@ def graficarPrompting():
     plt.legend(loc='upper right')
     plt.show(block=False)
     plt.pause(5)
-    plt.savefig("Graficar Prompting.png")
+    plt.savefig("Grafico Prompting.png")
     plt.close()
 
 def randomColor(arrayColors, nodeNumbers):
