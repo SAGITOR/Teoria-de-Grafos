@@ -36,32 +36,35 @@ def matrizAdyacencia_Prompting(matriz, contenedor):
         matriz_contador_time.append(np.copy(vector_contador))
 
 def graficarGrafo(matriz):
-    
+    global color_nodes
+
     for x in range(0 , len(matriz[0])):
         for y in range(0, len(matriz[0])):
             G.add_edge(x, y, weight = (matriz[x, y])* 0.01, length = 0.1)
 
-    print(f'{matriz} \n')       
+    print(f'{matriz} \n')  
+    color_nodes = randomColor(color_map, G.number_of_nodes())     
     weights = nx.get_edge_attributes(G,'weight').values()
     pos = nx.circular_layout(G)
     nx.draw(G, pos, with_labels=False, node_size=3400,
-        node_color = randomColor(color_map, G.number_of_nodes()),
+        node_color = color_nodes,
         width=list(weights), connectionstyle='arc3, rad = 0.13')
     nx.draw_networkx_labels(G, pos, labelsPercents, font_size=6)
     plt.show(block=False)
-    plt.pause(5)
+    plt.pause(1)
     plt.close()
-
+    
 def randomColor(arrayColors, nodeNumbers):
     if(nodeNumbers == len(arrayColors)):
         return arrayColors
-        
+
     nodeColors = []
     for i in range(0, nodeNumbers):
         nodeColors.append(random.choice(arrayColors))
     return nodeColors
 
-def calcular_prompting(vector, labelsPercents): #debes darle un vector con los valores el peso de cada nodo, y devuelve el prompting de cada uno de los nodos en otro vector.
+def calcular_prompting(vector): #debes darle un vector con los valores el peso de cada nodo, y devuelve el prompting de cada uno de los nodos en otro vector.
+    global labelsPercents
     matriz_prompting = []
     for i in range(len(vector)):
         matriz_prompting.append(vector[i]/sum(vector))
@@ -80,12 +83,12 @@ def main():
 
     matriz= np.zeros((5, 5))
     matrizAdyacencia_Prompting(matriz, contenedor)
-    calcular_prompting(vector_contador, labelsPercents)
+    calcular_prompting(vector_contador)
     graficarGrafo(matriz)
-
 #CREAMOS LA ESTRUCTURA DEL GRAFO
 G = nx.DiGraph()
 color_map = ["green", "blue", "red", "orange", "purple"]
+color_nodes = []
 labelsPercents = {}#Diccionarioa que guardara los porcentajes de cada nodo para el grafico
 matriz_timestamp = [] #guarda el peso de los vectores a través del tiempo 
 vector_contador = [0,0,0,0,0] #lista que contiene el peso de los vectoes al final de toda la comunicación 
