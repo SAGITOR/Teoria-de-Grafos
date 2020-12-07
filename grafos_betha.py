@@ -55,6 +55,7 @@ def graficarGrafo(matriz):
     nx.draw_networkx_labels(G, pos, labelsPercents, font_size=6)
     plt.show(block=False)
     plt.pause(5)
+    plt.savefig("Grafo.png")
     plt.close()
 
 def graficarPrompting():
@@ -76,6 +77,7 @@ def graficarPrompting():
     plt.legend(loc='upper right')
     plt.show(block=False)
     plt.pause(5)
+    plt.savefig("Graficar Prompting.png")
     plt.close()
 
 def randomColor(arrayColors, nodeNumbers):
