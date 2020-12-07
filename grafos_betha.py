@@ -51,7 +51,7 @@ def graficarGrafo(matriz):
         width=list(weights), connectionstyle='arc3, rad = 0.13')
     nx.draw_networkx_labels(G, pos, labelsPercents, font_size=6)
     plt.show(block=False)
-    plt.pause(1)
+    plt.pause(5)
     plt.close()
     
 def randomColor(arrayColors, nodeNumbers):
@@ -68,7 +68,7 @@ def calcular_prompting(vector): #debes darle un vector con los valores el peso d
     matriz_prompting = []
     for i in range(len(vector)):
         matriz_prompting.append(vector[i]/sum(vector))
-        labelsPercents[i] = "Usuario " + str(i + 1) + " (" + str(round((matriz_prompting[i])*100)) +"%)"
+        labelsPercents[i] = "Usuario " + str(i) + " (" + str(round((matriz_prompting[i])*100)) +"%)"
     print(f'\n{matriz_prompting}')
     return matriz_prompting
 
@@ -85,9 +85,34 @@ def main():
     matrizAdyacencia_Prompting(matriz, contenedor)
     calcular_prompting(vector_contador)
     graficarGrafo(matriz)
+    listaMaestra=[]
+    for i in color_nodes:
+        listaMaestra.append([])
+    for i in matriz_contador_time:
+        Number = 0
+        for l in (calcular_prompting(i)):
+            listaMaestra[Number].append(l)
+            Number +=1
+    #print(listaMaestra)
+    plt.xlabel("Tiempo[Minutos]")
+    plt.ylabel("Prompting")
+    plt.title("Grafico Prompting")
+    Number = 0
+    #plt.legend(('Funcion 1', 'Funcion 2', 'Funcion 3'),prop = {'size': 10}, loc='upper right')
+    for i in listaMaestra:
+        plt.plot(i,color=color_nodes[Number][0],label='Node '+str(Number))
+        Number += 1
+    plt.legend(loc='upper right')
+    plt.show()
+        
+            
+            
+        
+        
+    print(color_nodes)
 #CREAMOS LA ESTRUCTURA DEL GRAFO
 G = nx.DiGraph()
-color_map = ["green", "blue", "red", "orange", "purple"]
+color_map = ["green", "blue", "red", "magenta", "yellow"]
 color_nodes = []
 labelsPercents = {}#Diccionarioa que guardara los porcentajes de cada nodo para el grafico
 matriz_timestamp = [] #guarda el peso de los vectores a través del tiempo 
