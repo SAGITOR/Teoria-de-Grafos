@@ -35,14 +35,12 @@ def matrizAdyacencia_Prompting(matriz, contenedor):
         if( round(float(aux[3])) >= tiempoVentanas):
             tiempoVentanas += 60
             calcularPrompting(listaContador, 1, listaPromptingFinal)
-            #matriz_contador_time.append(list(np.copy(vector_contador)))
 
         anterior = int(aux[2])
         tiempoReal = float(aux[3])
 
     if tiempoReal != tiempoVentanas:
         calcularPrompting(listaContador, 1, listaPromptingFinal)
-        #matriz_contador_time.append(list(np.copy(vector_contador)))
 
 def graficarGrafo(matriz):
 
@@ -53,7 +51,6 @@ def graficarGrafo(matriz):
         for y in range(0, len(matriz[0])):
             G.add_edge(x, y, weight = (matriz[x, y])* 0.005, length = 0.1)
 
-    print(f'{matriz} \n') 
     plt.title("Grafo")    
     weights = nx.get_edge_attributes(G,'weight').values()
     pos = nx.circular_layout(G)
