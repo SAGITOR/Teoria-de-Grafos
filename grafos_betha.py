@@ -9,8 +9,6 @@ try:
     import networkx as nx 
     # importing matplotlib.pyplot 
     import matplotlib.pyplot as plt
-    # importing tkinter for the GUI
-    import tkinter
     
 except:#Si no se logran importar, se procede a instalarlas en el sistema del usuario
     print("Error when importing necessary libraries  to make the program work, it will proceed to start the intallation of these\n")
