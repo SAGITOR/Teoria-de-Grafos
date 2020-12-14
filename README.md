@@ -8,7 +8,7 @@ Marco Vivar           (marco.vivar@alumnos.uv.cl)
 
 # Instrucciones de instalación 
 
-Se recomienda hacer lo siguiente en un entorno virtual(pra evitar el choque de versiones entre librerias), sin embargo no es necesario para el buen funcionamiento.
+Se recomienda hacer lo siguiente en un entorno virtual(para evitar el choque de versiones entre librerias), sin embargo no es necesario para el buen funcionamiento.
 
 SI UTILIZAS WINDOWS, MAC O LINUX.
 la instalación se debiese realizar de forma automatica, solo debe tener instalado python 3.6 o superior en su sistema. 
