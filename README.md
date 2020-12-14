@@ -8,6 +8,8 @@ Marco Vivar           (marco.vivar@alumnos.uv.cl)
 
 #instrucciones de instalación 
 
+Se recomienda hacer lo siguiente en un entorno virtual, sin embargo no es necesario para el buen funcionamiento.
+
 SI UTILIZAS WINDOWS.
 la instalación se debiese realizar de forma automatica, solo debe tener instalado python 3.6 o superior en su sistema. 
 
@@ -19,3 +21,6 @@ deberá instalar las siguientes librerías para que el programa funcione:
 
 además de tener instalado python 3.6 o superior. 
  
+#Instrucciones de Uso 
+
+para correr el programa debe hacer abrir el archivo frontend.py con python 3.6 o superior, teniendo las librerías antes mencionadas instaladas.
