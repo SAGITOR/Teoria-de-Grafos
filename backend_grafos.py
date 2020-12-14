@@ -47,11 +47,11 @@ def graficarGrafo(matriz):
     G = nx.DiGraph()
     for x in range(0 , len(matriz[0])):
         for y in range(0, len(matriz[0])):
-            if(matriz[x, y] == 0):#Si el peso entre nodos es sero, se procede a no graficar la arista
+            if(matriz[x, y] == 0):#Si el peso entre nodos es cero, se procede a no graficar la arista
                 pass
             elif(matriz[x, y] <= 20):#Si el peso entre los nodos es muy pequeños, para visualizarlo de mejor manera se le cambia el color a azul y se aumenta el grosor de su arista
                 G.add_edge(x, y, weight = (matriz[x, y])* 0.08, color = "blue")
-            elif(matriz[x, y] >= 500):#Si el peso entre los nodos es mayor a 500, se resaltara este visualmente su arista con el color orjo
+            elif(matriz[x, y] >= 500):#Si el peso entre los nodos es mayor a 500, se resaltara este visualmente su arista con el color rojo
                 G.add_edge(x, y, weight = (matriz[x, y])* edgeSize, color = "red")
             else:
                 G.add_edge(x, y, weight = (matriz[x, y])* edgeSize, color = "black")
@@ -69,6 +69,7 @@ def graficarGrafo(matriz):
 
 def graficarPrompting():
     plt.close()
+    plt.figure(figsize = (10, 10))       
     plt.xlabel("Tiempo[Minutos]")
     plt.ylabel("Prompting")
     plt.title("Grafico Prompting")
@@ -76,7 +77,7 @@ def graficarPrompting():
     for i in listaPromptingFinal:
         plt.plot(i,color=colorNodes[number][0],label ='Node '+str(number))
         number += 1
-    plt.legend(loc='upper right')
+    plt.legend(loc='upper right',fontsize = fontSize)
     plt.show(block=False)
 
 
@@ -103,6 +104,7 @@ def numberOfNodes(contenedor):
     global edgeSize
     global labelsPercentsNamesNodes
     global connectionstyleRad
+    global fontSize
 
     nodes = []
     for a in range(1, len(contenedor)):
@@ -115,11 +117,13 @@ def numberOfNodes(contenedor):
     
     if(len(nodes) > 25):
         nodeSize = 400
+        fontSize = 6.7
         edgeSize = 0.0005
         labelsPercentsNamesNodes = ""
     else:
         nodeSize = 1000
         edgeSize = 0.003
+        fontSize = 10
         labelsPercentsNamesNodes = "Usuario " 
   
     return len(nodes)
@@ -160,4 +164,5 @@ labelsPercentsNamesNodes = ""
 nodeNumbers = 0
 nodeSize = 0
 edgeSize = 0
+fontSize = 0
 #---------------------------------------------AGREGAR DINAMISMO EN LAS GRAFICAS
