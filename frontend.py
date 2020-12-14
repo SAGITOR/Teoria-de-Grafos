@@ -1,5 +1,5 @@
 from tkinter import * 
-import grafos_betha as grafos
+import backend_grafos as grafos
 
 window = Tk()
 window.title("grafos")
